@@ -1,0 +1,40 @@
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+*.orig
+
+# Build output
+*.class
+*.jar
+# Except the ones in lib so we can share libraries between us
+!lib/*.jar
+!lib/**/*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Other IDEs (optional, just in case)
+.idea/
+*.iml
+.vscode/
+
+# Maven
+target/
+
+# Gradle
+.gradle/
+build/
+
+# Temporary files
+*.swp
+*~
