@@ -4,7 +4,7 @@
     Author     : javie
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>En ConstrucciÃ³n....</h1>
+        <h1>En Construcción....</h1>
     </body>
 </html>

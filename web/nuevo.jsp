@@ -4,7 +4,7 @@
     Created on : 19/11/2021, 07:15:10 PM
     Author     : javie
 --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -33,15 +33,15 @@
                         <td><input type="text" name="DNI"></td>
                     </tr>        
                     <tr>
-                        <td>DirecciÃ³n</td>
+                        <td>Dirección</td>
                         <td><input type="text" name="direccion"></td>
                     </tr>  
                     <tr>
-                        <td>TelÃ©fono</td>
+                        <td>Teléfono</td>
                         <td><input type="text" name="telefono"></td>
                     </tr>                 
                     <tr>
-                        <td>MÃ³vil</td>
+                        <td>Móvil</td>
                         <td><input type="text" name="movil"></td>
                     </tr>                 
             </table>

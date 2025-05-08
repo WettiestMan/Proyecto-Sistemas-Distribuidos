@@ -4,7 +4,7 @@
     Author     : javie
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +17,7 @@
             }
     %>
     <body>
-        <h1>MenÃº de Clientes</h1>
+        <h1>Menú de Clientes</h1>
         <p><a href="ControlerCliente?Op=Listar">Listar Clientes</a></p>
         <p><a href="ControlerCliente?Op=Nuevo">Nuevo Cliente</a></p>
     </body>

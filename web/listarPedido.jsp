@@ -6,7 +6,7 @@
 --%>
 <%@page import="java.util.List"%>
 <%@page import="Entidades.Pedido"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 <%
     List<Pedido> Lista= (List<Pedido>) request.getAttribute("Lista");
 %>

@@ -7,7 +7,7 @@
 
 <%@page import="java.util.List"%>
 <%@page import="Entidades.Cliente"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 <%
     List<Cliente> Lista= (List<Cliente>) request.getAttribute("Lista");
 %>
@@ -39,15 +39,15 @@
                     <td>${campo.DNI}</td>
                 </tr>        
                 <tr>
-                    <td>DirecciÃ³n</td>
+                    <td>Dirección</td>
                     <td>${campo.direccion}</td>
                 </tr>  
                 <tr>
-                    <td>TelÃ©fono</td>
+                    <td>Teléfono</td>
                     <td>${campo.telefono}</td>
                 </tr>                 
                 <tr>
-                    <td>MÃ³vil</td>
+                    <td>Móvil</td>
                     <td>${campo.movil}</td>
                 </tr>                 
                 </c:forEach>

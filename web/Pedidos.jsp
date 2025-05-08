@@ -4,7 +4,7 @@
     Author     : javie
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>MenÃº Pedido</h1>
+        <h1>Menú Pedido</h1>
         <p><a href="ControlerPedido?Op=Listar">Listar Pedidos</a></p>
         <p><a href="ControlerPedido?Op=Nuevo">Nuevo Pedido</a></p>
     </body>

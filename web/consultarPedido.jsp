@@ -7,7 +7,7 @@
 
 <%@page import="java.util.List"%>
 <%@page import="Entidades.DetallePedido"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 <%
     List<DetallePedido> Lista= (List<DetallePedido>) request.getAttribute("Lista");
 %>
@@ -31,7 +31,7 @@
                     <td>${campo.getId_Prod()}</td>
                 </tr>
                 <tr>
-                    <td>DescripciÃ³n</td>
+                    <td>Descripción</td>
                     <td>${campo.getDescripcion()}</td>
                 </tr>     
                 <tr>

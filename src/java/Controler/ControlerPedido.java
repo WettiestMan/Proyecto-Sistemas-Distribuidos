@@ -69,7 +69,7 @@ public class ControlerPedido extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
+        response.setCharacterEncoding("UTF-8");
         String Op =request.getParameter("Op");
         ArrayList<Pedido> Lista= new ArrayList<Pedido>();
         ArrayList<DetallePedido> ListaDet= new ArrayList<DetallePedido>();

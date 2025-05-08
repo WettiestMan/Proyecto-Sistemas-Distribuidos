@@ -4,7 +4,7 @@
     Author     : javie
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html; charset-UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,12 +18,12 @@
             }
         %>
          
-        <h1>MenÃº Principal</h1>
+        <h1>Menú Principal</h1>
         <form action="ValidarLogin" method="GET">  
             <p><a href="Clientes.jsp">Clientes</a></p>
             <p><a href="Productos.jsp">Producto</a></p>
             <p><a href="Pedidos.jsp">Pedidos</a></p>
-            <p><a href="CerrarSesion">Cerrar SesiÃ³n</a></p>
+            <p><a href="CerrarSesion">Cerrar Sesión</a></p>
         </form>
     </body>
 </html>

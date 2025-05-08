@@ -69,7 +69,7 @@ public class ControlerCliente extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        
+        response.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
         Usuarios user = (Usuarios)session.getAttribute("user");
         if(user == null){

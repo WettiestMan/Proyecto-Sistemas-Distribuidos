@@ -182,6 +182,7 @@ public class Controler extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        response.setCharacterEncoding("UTF-8");
         String vUsuario = request.getParameter("txtUsuario");
         String vClave = request.getParameter("txtClave");
         String vPaswd="";
@@ -289,6 +290,7 @@ public class Controler extends HttpServlet {
      */
     private void Respuesta(HttpServletResponse objRespuesta, String Mensaje)
     throws ServletException, IOException{
+        objRespuesta.setContentType("text/html;charset=UTF-8");
         PrintWriter out= objRespuesta.getWriter();
         out.println("<html>");
         out.println("<body>");
