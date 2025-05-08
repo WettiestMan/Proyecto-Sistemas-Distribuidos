@@ -34,10 +34,11 @@
                     <td>${campo.DNI}</td>
                     <td><a href="ControlerCliente?Op=Consultar&Id=${campo.id}">Consultar</a></td>
                     <td><a href="ControlerCliente?Op=Modificar&Id=${campo.id}">Modificar</a></td>
-                    <td><a href="ControlerCliente?Op=Eliminar&Id=${campo.id}">Eliminar</a></td>
+                    <td><a href="ControlerCliente?Op=Eliminar&Id=${campo.id}" class="BotonEliminarUsuario">Eliminar</a></td>
                 </tr>
                 </c:forEach>
                 
+                <script src="public/listar.js" type="text/javascript" charset="UTF-8"></script>
         </table> 
     </body>
 </html>
