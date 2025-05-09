@@ -2,6 +2,11 @@
 
 Los jars usados por el projecto están en la carpeta lib, configúrenlos en NetBeans
 
+## Archivo de entorno
+
+El proyecto lee algunos parámetros de un archivo de entorno. Para crearlo, usen  
+.env.example, modifíquenlo con sus datos y guárdenlo en la carpeta bin de su servidor apache  
+
 ## Otra cosa importante
 
 Acabo de modificar el código para usar UTF-8 en todas partes (también en la base de datos)  
