@@ -151,18 +151,22 @@ INSERT INTO `t_producto` (`Id_Prod`, `Descripcion`, `costo`, `precio`, `cantidad
 
 DROP TABLE IF EXISTS `t_usuario`;
 CREATE TABLE IF NOT EXISTS `t_usuario` (
-  `IdUsuario` varchar(50) NOT NULL,
-  `Passwd` varchar(60) CHARSET utf8mb4 COLLATE utf8mb4_nopad_bin NOT NULL,
+  `IdUsuario` varchar(50) CHARSET utf8mb4 COLLATE utf8mb4_nopad_bin NOT NULL,
+  `Passwd` char(60) CHARSET utf8mb4 COLLATE utf8mb4_nopad_bin NOT NULL,
+  `Rol` varchar(20) NOT NULL,
   PRIMARY KEY (`IdUsuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 DEFAULT COLLATE=utf8mb4_unicode_520_ci;
 
 --
 -- Volcado de datos para la tabla `t_usuario`
+-- Nota: Si van a añadir otro usuario, recuerden hashear la contraseña con BCrypt
+-- versión 2A, el hash debe ser de exactamente 60 caracteres
 --
 
-INSERT INTO `t_usuario` (`IdUsuario`, `Passwd`) VALUES
-('JGARCIA', '12345678'),
-('JPEREZ', 'HolaMundo');
+INSERT INTO `t_usuario` (`IdUsuario`, `Passwd`, `Rol`) VALUES
+('JGARCIA', '$2a$12$y5znb6oieBXpgxObr6Q6ju8byWGQatgtGll6kV0hwtNPPaEyF8V5O', 'USUARIO'),
+('JPEREZ', '$2a$12$rCoCiIZyqEMgOxQoAV/zAOildMgRJ67PDoQEcdya/pKMw7FTiDY9G', 'USUARIO'),
+('admin', '$2a$12$jNuDQO/dTa.hGXfZi8QSXe9IQkjq0SpURp9g.fMkxz2ZgrLPCz95S', 'ADMINISTRADOR');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

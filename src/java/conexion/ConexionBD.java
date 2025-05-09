@@ -17,11 +17,11 @@ import java.sql.SQLException;
  * @author javie
  */
 public class ConexionBD {
-    private final static String driver="com.mysql.cj.jdbc.Driver";
+    private final static String driver = "com.mysql.cj.jdbc.Driver";
     private final static String url;
     private final static String user;
     private final static String pass;
-    protected Connection conn=null;
+    protected Connection conn = null;
     
     static {
         // Cargue un .env en la carpeta bin de su apache tomcat

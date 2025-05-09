@@ -5,6 +5,7 @@
  */
 package Controler;
 
+import Entidades.RolUsuario;
 import Entidades.Usuarios;
 import io.github.cdimascio.dotenv.Dotenv;
 import java.io.IOException;
@@ -16,6 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import conexion.ConexionBD;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Objects;
 /**
  *
@@ -47,14 +53,60 @@ public class ValidarLogin extends HttpServlet {
        user = request.getParameter("txtUsuario");
        pass = request.getParameter("txtClave");
        
-       String correctUser = env.get("PAGE_USER", ""); // admin
-       String correctPassword = env.get("PAGE_PASS_HASH", ""); // 1234
-       
-       if (correctUser.isEmpty() || correctPassword.isEmpty()) {
-           throw new RuntimeException("No hay un usuario y contraseña de administrador registrados para iniciar sesión.");
+       ConexionBD dbhandle = new ConexionBD();
+       Connection conn = dbhandle.connected();
+       if (conn == null) {
+           response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+           request.setAttribute("msg", "Error al iniciar sesión");
+           request.getRequestDispatcher("500.jsp").forward(request, response);
+           return;
        }
        
-       boolean ok = Objects.equals(user, correctUser)
+       PreparedStatement ps = null;
+       ResultSet rs = null;
+       
+       try {
+           final String sql = "SELECT * FROM t_usuario WHERE IdUsuario=?";
+           ps = conn.prepareStatement(sql);
+           ps.setString(1, user);
+           rs = ps.executeQuery();
+           
+           if (rs.next() == false)
+               request.getRequestDispatcher("ErrorLogin").forward(request, response);
+           else {
+               final String userId = rs.getString("IdUsuario");
+               final String passHash = rs.getString("Passwd");
+               final RolUsuario role = RolUsuario.valueOf(rs.getString("rol"));
+               if (BCrypt.verifyer(BCrypt.Version.VERSION_2A)
+                       .verify(pass.toCharArray(), passHash).verified) {
+                   Usuarios nuser = new Usuarios(userId, passHash.toCharArray(), role);
+                   HttpSession session = request.getSession();
+                   session.setAttribute("user", nuser);
+                   //request.getRequestDispatcher("index.jsp").forward(request, response);
+                   response.sendRedirect("index.jsp");
+               }
+               else {
+                   request.getRequestDispatcher("ErrorLogin").forward(request, response);
+               }
+           }
+           
+       } catch (SQLException e) {
+           response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+           request.setAttribute("msg", "Error al iniciar sesión");
+           request.getRequestDispatcher("500.jsp").forward(request, response);
+       } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                System.err.println("No se pudo cerrar el PreparedStatement o el ResultSet"
+                        + e.getMessage());
+            }
+            
+            dbhandle.disconnect();
+       }
+       
+       /*boolean ok = Objects.equals(user, correctUser)
                && BCrypt.verifyer().verify(pass.toCharArray(), correctPassword.toCharArray()).verified;
        
        if (ok) {
@@ -66,7 +118,7 @@ public class ValidarLogin extends HttpServlet {
        }
        else{
            request.getRequestDispatcher("ErrorLogin").forward(request, response);
-       }
+       }*/
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

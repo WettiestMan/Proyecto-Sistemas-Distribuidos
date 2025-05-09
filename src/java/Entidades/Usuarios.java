@@ -11,11 +11,13 @@ package Entidades;
  */
 public class Usuarios {
     private String user;
-    private String pass;
+    private char pass[];
+    private RolUsuario rol;
 
-    public Usuarios(String user, String pass) {
+    public Usuarios(String user, char pass[], RolUsuario rol) {
         this.user = user;
         this.pass = pass;
+        this.rol = rol;
     }
 
     public String getUser() {
@@ -26,12 +28,19 @@ public class Usuarios {
         this.user = user;
     }
 
-    public String getPass() {
+    public char[] getPass() {
         return pass;
     }
 
-    public void setPass(String pass) {
+    public void setPass(char pass[]) {
         this.pass = pass;
     }
     
+    public RolUsuario getRol() {
+        return rol;
+    }
+    
+    public void setRol(RolUsuario rol) {
+        this.rol = rol;
+    }
 }

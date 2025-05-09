@@ -8,8 +8,10 @@
 <%@page import="java.util.List"%>
 <%@page import="Entidades.Cliente"%>
 <%@page contentType="text/html; charset-UTF-8"%>
-<%
-    List<Cliente> Lista= (List<Cliente>) request.getAttribute("Lista");
+<%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
+    if (session.getAttribute("user")==null){
+        response.sendRedirect("login.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -18,6 +20,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            List<Cliente> Lista= (List<Cliente>) request.getAttribute("Lista");
+        %>
         <h1>Modifica Clientes</h1>
         <form action="ControlerCliente" method="post">   
             <table border="1">

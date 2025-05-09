@@ -7,8 +7,10 @@
 <%@page import="java.util.List"%>
 <%@page import="Entidades.Pedido"%>
 <%@page contentType="text/html; charset-UTF-8"%>
-<%
-    List<Pedido> Lista= (List<Pedido>) request.getAttribute("Lista");
+<%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
+    if (session.getAttribute("user")==null){
+        response.sendRedirect("login.jsp");
+    }
 %>
 <!DOCTYPE html>
 <html>
@@ -17,6 +19,9 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%
+            List<Pedido> Lista= (List<Pedido>) request.getAttribute("Lista");
+        %>
         <h1>Listado de Pedidos</h1>
         <table border="1">
                 <tr>

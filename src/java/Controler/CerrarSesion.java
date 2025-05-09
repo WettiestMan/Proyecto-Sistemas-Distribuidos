@@ -35,8 +35,8 @@ public class CerrarSesion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         session.removeAttribute("user");
-        request.getRequestDispatcher("login.jsp").forward(request, response);
-
+        //request.getRequestDispatcher("login.jsp").forward(request, response);
+        response.sendRedirect("login.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

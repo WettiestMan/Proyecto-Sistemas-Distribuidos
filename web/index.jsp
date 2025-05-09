@@ -4,7 +4,14 @@
     Author     : javie
 --%>
 
+<%@page import="Entidades.RolUsuario"%>
+<%@page import="Entidades.Usuarios"%>
 <%@page contentType="text/html; charset-UTF-8"%>
+<%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
+    if (session.getAttribute("user")==null){
+        response.sendRedirect("login.jsp");
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,18 +19,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
-            if (session.getAttribute("user")==null){
-                response.sendRedirect("login.jsp");
-            }
-        %>
-         
         <h1>Menú Principal</h1>
-        <form action="ValidarLogin" method="GET">  
-            <p><a href="Clientes.jsp">Clientes</a></p>
-            <p><a href="Productos.jsp">Producto</a></p>
-            <p><a href="Pedidos.jsp">Pedidos</a></p>
-            <p><a href="CerrarSesion">Cerrar Sesión</a></p>
-        </form>
+        <p><a href="Cliente/Clientes.jsp">Clientes</a></p>
+        <p><a href="Cliente/Productos.jsp">Producto</a></p>
+        <p><a href="Cliente/Pedidos.jsp">Pedidos</a></p>
+        <% 
+            Usuarios usr = (Usuarios)session.getAttribute("user");
+            if (usr != null && usr.getRol() == RolUsuario.ADMINISTRADOR) {%>
+            <p><a href="Usuarios.jsp">Usuarios</a></p>
+        <% } %>
+        <p><a href="CerrarSesion">Cerrar Sesión</a></p>
     </body>
 </html>
