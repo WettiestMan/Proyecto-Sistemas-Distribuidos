@@ -17,8 +17,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Menú Pedido</h1>
-        <p><a href="ControlerPedido?Op=Listar">Listar Pedidos</a></p>
-        <p><a href="ControlerPedido?Op=Nuevo">Nuevo Pedido</a></p>
+        <h1>MenÃº Pedido</h1>
+        <p><a href="../ControlerPedido?Op=Listar">Listar Pedidos</a></p>
+        <p><a href="../ControlerPedido?Op=Nuevo">Nuevo Pedido</a></p>
     </body>
 </html>
