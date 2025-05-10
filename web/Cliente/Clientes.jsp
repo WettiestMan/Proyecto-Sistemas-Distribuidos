@@ -17,8 +17,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Menú de Clientes</h1>
-        <p><a href="ControlerCliente?Op=Listar">Listar Clientes</a></p>
-        <p><a href="ControlerCliente?Op=Nuevo">Nuevo Cliente</a></p>
+        <h1>MenÃº de Clientes</h1>
+        <p><a href="../ControlerCliente?Op=Listar">Listar Clientes</a></p>
+        <p><a href="../ControlerCliente?Op=Nuevo">Nuevo Cliente</a></p>
     </body>
 </html>
