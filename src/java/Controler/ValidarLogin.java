@@ -7,7 +7,6 @@ package Controler;
 
 import Entidades.RolUsuario;
 import Entidades.Usuarios;
-import io.github.cdimascio.dotenv.Dotenv;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -29,12 +28,6 @@ import java.util.Objects;
  */
 @WebServlet(name = "ValidarLogin", urlPatterns = {"/ValidarLogin"})
 public class ValidarLogin extends HttpServlet {
-    
-    private static final Dotenv env;
-    
-    static {
-        env = Dotenv.configure().load();
-    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

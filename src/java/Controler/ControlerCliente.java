@@ -168,7 +168,7 @@ public class ControlerCliente extends HttpServlet {
                     ps= conn.prepareStatement(sql);
                     ps.setString(1, Id);
                     ps.executeUpdate();
-                    request.getRequestDispatcher("Clientes.jsp").forward(request, response);
+                    request.getRequestDispatcher("Cliente/Clientes.jsp").forward(request, response);
                 }catch(SQLException ex){
                     System.out.println("Error de SQL..."+ex.getMessage());
                 } finally{
@@ -264,7 +264,7 @@ public class ControlerCliente extends HttpServlet {
             }               
         }
         
-        response.sendRedirect("Clientes.jsp");       
+        response.sendRedirect("Cliente/Clientes.jsp");       
         
     }
 

@@ -4,7 +4,7 @@
     Author     : santi
 --%>
 
-<%@page contentType="text/html; charset=UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     Object check = request.getAttribute("msg");
     

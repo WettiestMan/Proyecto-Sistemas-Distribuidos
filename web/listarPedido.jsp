@@ -6,7 +6,7 @@
 --%>
 <%@page import="java.util.List"%>
 <%@page import="Entidades.Pedido"%>
-<%@page contentType="text/html; charset-UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
     if (session.getAttribute("user")==null){
         response.sendRedirect("login.jsp");

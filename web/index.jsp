@@ -6,7 +6,7 @@
 
 <%@page import="Entidades.RolUsuario"%>
 <%@page import="Entidades.Usuarios"%>
-<%@page contentType="text/html; charset-UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
     if (session.getAttribute("user")==null){
         response.sendRedirect("login.jsp");
@@ -19,7 +19,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Menú Principal</h1>
+        <h1>MenÃº Principal</h1>
         <p><a href="Cliente/Clientes.jsp">Clientes</a></p>
         <p><a href="Cliente/Productos.jsp">Producto</a></p>
         <p><a href="Cliente/Pedidos.jsp">Pedidos</a></p>
@@ -28,6 +28,6 @@
             if (usr != null && usr.getRol() == RolUsuario.ADMINISTRADOR) {%>
             <p><a href="Usuarios.jsp">Usuarios</a></p>
         <% } %>
-        <p><a href="CerrarSesion">Cerrar Sesión</a></p>
+        <p><a href="CerrarSesion">Cerrar SesiÃ³n</a></p>
     </body>
 </html>

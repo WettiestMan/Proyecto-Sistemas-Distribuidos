@@ -4,7 +4,7 @@
     Author     : javie
 --%>
 
-<%@page contentType="text/html; charset-UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
     if (session.getAttribute("user") == null){
         response.sendRedirect("../login.jsp");
@@ -17,6 +17,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>En Construcción....</h1>
+        <h1>En ConstrucciÃ³n....</h1>
     </body>
 </html>

@@ -7,7 +7,7 @@
 
 <%@page import="java.util.List"%>
 <%@page import="Entidades.Cliente"%>
-<%@page contentType="text/html; charset-UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%  response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");  
     if (session.getAttribute("user")==null){
         response.sendRedirect("login.jsp");
@@ -44,15 +44,15 @@
                     <td>${campo.DNI}</td>
                 </tr>        
                 <tr>
-                    <td>Dirección</td>
+                    <td>DirecciÃ³n</td>
                     <td>${campo.direccion}</td>
                 </tr>  
                 <tr>
-                    <td>Teléfono</td>
+                    <td>TelÃ©fono</td>
                     <td>${campo.telefono}</td>
                 </tr>                 
                 <tr>
-                    <td>Móvil</td>
+                    <td>MÃ³vil</td>
                     <td>${campo.movil}</td>
                 </tr>                 
                 </c:forEach>
